@@ -87,7 +87,7 @@
 
                       <div class="col-lg-12">
                           <div class="content-panel">
-                              <h4><i class="fa fa-angle-right"></i>Listado de Tipos de Documentoo</h4>
+                              <h4><i class="fa fa-angle-right"></i>Listado de Tipos de Gafete</h4>
                               <hr>
                                   <section class="col-md-12">
                                       <jsp:useBean id="BeanConsultar" class="com.sv.udb.controlador.TipoGafeCtrl" scope="page"/>
@@ -96,6 +96,7 @@
                                                 <tr>
                                                     <th>Nombre</th>
                                                     <th>Fecha Alta</th>
+                                                    <th>Fecha Baja</th>
                                                      <th>Seleccione</th>
                                                 </tr>
                                             </thead>
@@ -104,7 +105,10 @@
                                                     <tr>
                                                         <td><c:out value="${fila.nombTipoGafe}"></c:out></td>
                                                         <td><c:out value="${fila.fechAlta}"></c:out></td>
-                                                        <td> <input type="radio" name="codiRadi" value="${fila.codiTipoGafe}"/></td>
+                                                        <td><c:out value="${fila.fechBaja}"></c:out></td>
+                                                        <c:if test="${fila.esta == 1}">
+                                                            <td> <input type="radio" name="codiRadi" value="${fila.codiTipoGafe}"/></td>
+                                                        </c:if>                                                            
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

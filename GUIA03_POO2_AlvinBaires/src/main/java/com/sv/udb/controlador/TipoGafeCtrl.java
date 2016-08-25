@@ -2,6 +2,7 @@ package com.sv.udb.controlador;
 
 import com.sv.udb.modelo.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -82,18 +83,19 @@ public class TipoGafeCtrl {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();       
+        EntityTransaction tx = em.getTransaction();
+        TipoGafe objeGafe = null;
         tx.begin();
-        TipoGafe respo = null;
-        try{
-            respo = em.find(TipoGafe.class, empId);
-            if(respo != null)
-            {
-                em.remove(respo);
-                tx.commit();
-                resp = true; 
-            }
-        }catch(Exception e){
+        try
+        {            
+            objeGafe = em.find(TipoGafe.class, empId);
+            objeGafe.setEsta(0);
+            objeGafe.setFechBaja(new Date());
+            tx.commit();
+            resp = true;
+        }
+        catch(Exception ex)
+        {
             tx.rollback();
         }
         em.close();

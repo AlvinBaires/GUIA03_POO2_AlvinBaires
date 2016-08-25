@@ -96,6 +96,7 @@
                                                 <tr>
                                                     <th>Nombre</th>
                                                     <th>Fecha Alta</th>
+                                                    <th>Fecha Baja</th>
                                                      <th>Seleccione</th>
                                                 </tr>
                                             </thead>
@@ -104,7 +105,10 @@
                                                     <tr>
                                                         <td><c:out value="${fila.nombTipoDocu}"></c:out></td>
                                                         <td><c:out value="${fila.fechAlta}"></c:out></td>
-                                                        <td> <input type="radio" name="codiRadi" value="${fila.codiTipoDocu}"/></td>
+                                                        <td><c:out value="${fila.fechBaja}"></c:out></td>
+                                                        <c:if test="${fila.esta == 1}">
+                                                            <td> <input type="radio" name="codiRadi" value="${fila.codiTipoDocu}"/></td>
+                                                        </c:if>                                                            
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
