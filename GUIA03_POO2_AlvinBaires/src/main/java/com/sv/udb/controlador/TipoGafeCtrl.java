@@ -11,7 +11,7 @@ import javax.persistence.TypedQuery;
 
 public class TipoGafeCtrl {
     
-    public boolean guar(LugaAcce obje)
+    public boolean guar(TipoGafe obje)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -33,14 +33,14 @@ public class TipoGafeCtrl {
         return resp;
     }
     
-     public List<LugaAcce>  ConsTodo()
+     public List<TipoGafe>  ConsTodo()
     {
-        List<LugaAcce> resp = new ArrayList<>();
+        List<TipoGafe> resp = new ArrayList<>();
           EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
            EntityManager em = emf.createEntityManager();
         try
         {
-          TypedQuery<LugaAcce> query =em.createNamedQuery("LugaAcce.findAll", LugaAcce.class);
+          TypedQuery<TipoGafe> query =em.createNamedQuery("TipoGafe.findAll", TipoGafe.class);
            resp = query.getResultList();
         }
         catch(Exception ex)
@@ -50,19 +50,20 @@ public class TipoGafeCtrl {
         return resp;
        
     }
-        public boolean modi(LugaAcce obje)
+     
+     public boolean modi(TipoGafe obje)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
-         LugaAcce lugar = null;
+        TipoGafe objeGafe = null;
         tx.begin();
         try
         {
             
-            lugar = em.find(LugaAcce.class, obje.getCodiLugaAcce());
-            lugar.setNombLugaAcce(obje.getNombLugaAcce());
+            objeGafe = em.find(TipoGafe.class, obje.getCodiTipoGafe());
+            objeGafe.setNombTipoGafe(obje.getNombTipoGafe());
             tx.commit();
             resp = true;
         }
@@ -83,9 +84,9 @@ public class TipoGafeCtrl {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();       
         tx.begin();
-        LugaAcce respo = null;
+        TipoGafe respo = null;
         try{
-            respo = em.find(LugaAcce.class, empId);
+            respo = em.find(TipoGafe.class, empId);
             if(respo != null)
             {
                 em.remove(respo);
@@ -103,14 +104,14 @@ public class TipoGafeCtrl {
 
      
      
-    public LugaAcce get(Long empId){
+    public TipoGafe get(Long empId){
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
-        LugaAcce resp = null;
+        TipoGafe resp = null;
         
         try{
-            resp = em.find(LugaAcce.class, empId);
+            resp = em.find(TipoGafe.class, empId);
             
         }catch(Exception e){
             e.printStackTrace();

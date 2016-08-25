@@ -11,7 +11,7 @@ import javax.persistence.TypedQuery;
 
 public class TipoDocuCtrl {
     
-    public boolean guar(LugaAcce obje)
+    public boolean guar(TipoDocu obje)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -33,15 +33,15 @@ public class TipoDocuCtrl {
         return resp;
     }
     
-     public List<LugaAcce>  ConsTodo()
+     public List<TipoDocu>  ConsTodo()
     {
-        List<LugaAcce> resp = new ArrayList<>();
+        List<TipoDocu> resp = new ArrayList<>();
           EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
            EntityManager em = emf.createEntityManager();
         try
         {
-          TypedQuery<LugaAcce> query =em.createNamedQuery("LugaAcce.findAll", LugaAcce.class);
-           resp = query.getResultList();
+          TypedQuery<TipoDocu> query =em.createNamedQuery("TipoDocu.findAll", TipoDocu.class);
+          resp = query.getResultList();
         }
         catch(Exception ex)
         {
@@ -50,19 +50,19 @@ public class TipoDocuCtrl {
         return resp;
        
     }
-        public boolean modi(LugaAcce obje)
+        public boolean modi(TipoDocu obje)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
-         LugaAcce lugar = null;
+         TipoDocu objeTipoDocu = null;
         tx.begin();
         try
         {
             
-            lugar = em.find(LugaAcce.class, obje.getCodiLugaAcce());
-            lugar.setNombLugaAcce(obje.getNombLugaAcce());
+            objeTipoDocu = em.find(TipoDocu.class, obje.getCodiTipoDocu());
+            objeTipoDocu.setNombTipoDocu(obje.getNombTipoDocu());
             tx.commit();
             resp = true;
         }
@@ -83,9 +83,9 @@ public class TipoDocuCtrl {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();       
         tx.begin();
-        LugaAcce respo = null;
+        TipoDocu respo = null;
         try{
-            respo = em.find(LugaAcce.class, empId);
+            respo = em.find(TipoDocu.class, empId);
             if(respo != null)
             {
                 em.remove(respo);
@@ -103,14 +103,14 @@ public class TipoDocuCtrl {
 
      
      
-    public LugaAcce get(Long empId){
+    public TipoDocu get(Long empId){
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
-        LugaAcce resp = null;
+        TipoDocu resp = null;
         
         try{
-            resp = em.find(LugaAcce.class, empId);
+            resp = em.find(TipoDocu.class, empId);
             
         }catch(Exception e){
             e.printStackTrace();
