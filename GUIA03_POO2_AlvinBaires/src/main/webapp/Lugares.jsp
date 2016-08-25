@@ -75,8 +75,8 @@
                                       
                                       
                               <div class="col s12 center-align">
-                                  <input type="submit" name="lugaAcceBton" value="Guardar" class="btn btn-default" />                                    
-                                    <input type="submit" name="lugaAcceBton" value="Modificar" class="btn btn-default" />                                    
+                                  <input type="submit" name="accionBtn" value="Guardar" class="btn btn-default" />                                    
+                                    <input type="submit" name="accionBtn" value="Modificar" class="btn btn-default" />                                    
                               </div>    
                           </div>
                       </div><!-- col-lg-12-->      	
@@ -96,6 +96,7 @@
                                                 <tr>
                                                     <th>Nombre</th>
                                                     <th>Fecha Alta</th>
+                                                    <th>Fecha Baja</th>
                                                      <th>Seleccione</th>
                                                 </tr>
                                             </thead>
@@ -104,14 +105,17 @@
                                                     <tr>
                                                         <td><c:out value="${fila.nombLugaAcce}"></c:out></td>
                                                         <td><c:out value="${fila.fechAlta}"></c:out></td>
+                                                        <td><c:out value="${fila.fechBaja}"></c:out></td>
+                                                        <c:if test="${fila.esta == 1}">
                                                         <td> <input type="radio" name="codiRadi" value="${fila.codiLugaAcce}"/></td>
+                                                        </c:if>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
                                         </table>
                                   </section>                        
-                                      <input type="submit" name="lugaAcceBton" value="Consultar" class="btn btn-default" />
-                                      <input type="submit" name="lugaAcceBton" value="Eliminar" class="btn btn-default" />
+                                      <input type="submit" name="accionBtn" value="Consultar" class="btn btn-default" />
+                                      <input type="submit" name="accionBtn" value="Eliminar" class="btn btn-default" />
                               </div>
                           </div>
                       </div>
