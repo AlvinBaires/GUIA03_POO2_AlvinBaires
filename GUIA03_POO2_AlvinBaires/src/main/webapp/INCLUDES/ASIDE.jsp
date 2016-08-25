@@ -15,19 +15,22 @@
                           <span>Mantenimientos</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="TipoDocu.jsp">Tipo Documento (Solo Tabla)</a></li>
+                          <li><a  href="Lugares.jsp">Lugares</a></li>
                       </ul>
                       <ul class="sub">
-                          <li><a  href="Personas.jsp">Personas (Guia 2)</a></li>
+                          <li><a  href="TipoDocu.jsp">Tipo Documento</a></li>
+                      </ul>
+                      <ul class="sub">
+                          <li><a  href="TipoGafe.jsp">Tigo Gafete</a></li>
                       </ul>
                   </li>
                   
-                  <li class="sub-menu">
+                   <!--<li class="sub-menu">
                       <a href="Reportes.jsp">
                           <i class="fa fa-bar-chart-o"></i>
                           <span>Reportes (Guía 1 y 2)</span>
                       </a>
-                  </li>
+                  </li>-->
                   
               </ul>
               <!-- sidebar menu end-->

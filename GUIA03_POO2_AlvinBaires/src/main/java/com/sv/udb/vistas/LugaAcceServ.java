@@ -46,12 +46,39 @@ public class LugaAcceServ extends HttpServlet {
                 obje.setFechAlta(new Date());
                 obje.setEsta(1);
                 mens = new LugaAcceCtrl().guar(obje) ? "Datos guardados exitosamente" : "Datos NO guardados";
-                request.getRequestDispatcher("/index.html").forward(request, response);
             }
+            else if(CRUD.equals("Eliminar"))
+            {
+                
+                 Long CodiLuga = Long.parseLong(request.getParameter("codiRadi") == null ? 
+                            "0" : request.getParameter("codiRadi"));
+                mens = new LugaAcceCtrl().elim(CodiLuga) ? "Datos Eliminados" : "Datos no eliminados"; 
+            }
+            else if(CRUD.equals("Consultar"))
+            {
+                Long CodiLuga = Long.parseLong(request.getParameter("codiRadi") == null ? 
+                            "0" : request.getParameter("codiRadi"));
+                    LugaAcce objeLuga = new LugaAcceCtrl().get(CodiLuga);
+                    if(objeLuga != null)
+                    {
+                        //System.out.println(objeLuga.getCodiLugaAcce() +" "+objeLuga.getNombLugaAcce());
+                        request.setAttribute("codi", objeLuga.getCodiLugaAcce());
+                        request.setAttribute("nomb", objeLuga.getNombLugaAcce());
+                     }
+            }
+            else if(CRUD.equals("Modificar"))
+            {
+                 LugaAcce obje = new LugaAcce();
+                obje.setNombLugaAcce(request.getParameter("nomb"));
+                obje.setEsta(1);
+                obje.setCodiLugaAcce(Long.parseLong(request.getParameter("codi")));
+                mens = new LugaAcceCtrl().modi(obje) ? "Datos modificados" : "Datos no modificados";
+            }
+            request.getRequestDispatcher("/Lugares.jsp").forward(request, response);
         }
         else
         {
-            response.sendRedirect(request.getContextPath() + "/index.html");
+            response.sendRedirect(request.getContextPath() + "/Lugares.jsp");
         }
     }
 

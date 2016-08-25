@@ -1,72 +1,130 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.sv.udb.modelo;
 
-import java.sql.Blob;
+import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
-public class TipoDocu {
-    private int CODI_TIPO_DOCU;
-    private String NOMB_TIPO_DOCU, FECH_ALTA, FECH_BAJA;
-    private Blob esta;
+/**
+ *
+ * @author Ariel
+ */
+@Entity
+@Table(name = "tipo_docu", catalog = "rceron_poo", schema = "")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "TipoDocu.findAll", query = "SELECT t FROM TipoDocu t"),
+    @NamedQuery(name = "TipoDocu.findByCodiTipoDocu", query = "SELECT t FROM TipoDocu t WHERE t.codiTipoDocu = :codiTipoDocu"),
+    @NamedQuery(name = "TipoDocu.findByNombTipoDocu", query = "SELECT t FROM TipoDocu t WHERE t.nombTipoDocu = :nombTipoDocu"),
+    @NamedQuery(name = "TipoDocu.findByFechAlta", query = "SELECT t FROM TipoDocu t WHERE t.fechAlta = :fechAlta"),
+    @NamedQuery(name = "TipoDocu.findByFechBaja", query = "SELECT t FROM TipoDocu t WHERE t.fechBaja = :fechBaja"),
+    @NamedQuery(name = "TipoDocu.findByEsta", query = "SELECT t FROM TipoDocu t WHERE t.esta = :esta")})
+public class TipoDocu implements Serializable {
 
-    public Blob getEsta() {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "codi_tipo_docu")
+    private Long codiTipoDocu;
+    @Size(max = 50)
+    @Column(name = "nomb_tipo_docu")
+    private String nombTipoDocu;
+    @Column(name = "fech_alta")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechAlta;
+    @Column(name = "fech_baja")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechBaja;
+    @Column(name = "esta")
+    private Integer esta;
+
+    public TipoDocu() {
+    }
+
+    public TipoDocu(Long codiTipoDocu) {
+        this.codiTipoDocu = codiTipoDocu;
+    }
+
+    public Long getCodiTipoDocu() {
+        return codiTipoDocu;
+    }
+
+    public void setCodiTipoDocu(Long codiTipoDocu) {
+        this.codiTipoDocu = codiTipoDocu;
+    }
+
+    public String getNombTipoDocu() {
+        return nombTipoDocu;
+    }
+
+    public void setNombTipoDocu(String nombTipoDocu) {
+        this.nombTipoDocu = nombTipoDocu;
+    }
+
+    public Date getFechAlta() {
+        return fechAlta;
+    }
+
+    public void setFechAlta(Date fechAlta) {
+        this.fechAlta = fechAlta;
+    }
+
+    public Date getFechBaja() {
+        return fechBaja;
+    }
+
+    public void setFechBaja(Date fechBaja) {
+        this.fechBaja = fechBaja;
+    }
+
+    public Integer getEsta() {
         return esta;
     }
 
-    public void setEsta(Blob esta) {
-        this.esta = esta;
-    }
-    
-    public TipoDocu()
-    {
-        
-    }
-
-    public TipoDocu(int CODI_TIPO_DOCU, String NOMB_TIPO_DOCU, String FECH_ALTA, String FECH_BAJA, Blob esta) {
-        this.CODI_TIPO_DOCU = CODI_TIPO_DOCU;
-        this.NOMB_TIPO_DOCU = NOMB_TIPO_DOCU;
-        this.FECH_ALTA = FECH_ALTA;
-        this.FECH_BAJA = FECH_BAJA;
+    public void setEsta(Integer esta) {
         this.esta = esta;
     }
 
-           
-    
-    public int getCODI_TIPO_DOCU() {
-        return CODI_TIPO_DOCU;
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (codiTipoDocu != null ? codiTipoDocu.hashCode() : 0);
+        return hash;
     }
 
-    public void setCODI_TIPO_DOCU(int CODI_TIPO_DOCU) {
-        this.CODI_TIPO_DOCU = CODI_TIPO_DOCU;
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof TipoDocu)) {
+            return false;
+        }
+        TipoDocu other = (TipoDocu) object;
+        if ((this.codiTipoDocu == null && other.codiTipoDocu != null) || (this.codiTipoDocu != null && !this.codiTipoDocu.equals(other.codiTipoDocu))) {
+            return false;
+        }
+        return true;
     }
-
-    public String getNOMB_TIPO_DOCU() {
-        return NOMB_TIPO_DOCU;
-    }
-
-    public void setNOMB_TIPO_DOCU(String NOMB_TIPO_DOCU) {
-        this.NOMB_TIPO_DOCU = NOMB_TIPO_DOCU;
-    }
-
-    public String getFECH_ALTA() {
-        return FECH_ALTA;
-    }
-
-    public void setFECH_ALTA(String FECH_ALTA) {
-        this.FECH_ALTA = FECH_ALTA;
-    }
-
-    public String getFECH_BAJA() {
-        return FECH_BAJA;
-    }
-
-    public void setFECH_BAJA(String FECH_BAJA) {
-        this.FECH_BAJA = FECH_BAJA;
-    }
- 
-    
 
     @Override
     public String toString() {
-       return this.NOMB_TIPO_DOCU;
+        return "com.sv.udb.modelo.TipoDocu[ codiTipoDocu=" + codiTipoDocu + " ]";
     }
     
 }

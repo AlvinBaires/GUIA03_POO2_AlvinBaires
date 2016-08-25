@@ -5,51 +5,36 @@
  */
 package com.sv.udb.controlador;
 
-import com.sv.udb.modelo.*;
-import com.sv.udb.recursos.Conexion;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import com.sv.udb.modelo.LugaAcce;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
+/**
+ *
+ * @author Laboratorio
+ */
 public class TipoGafeCtrl {
-    public List<TipoGafe> consTodo()
+     public boolean guar(LugaAcce obje)
     {
-        List<TipoGafe> resp = new ArrayList<>();
-        Connection cn = new Conexion().getConn();
+        boolean resp = false;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
         try
         {
-            String consulta = "SELECT * FROM tipo_gafe";
-            PreparedStatement cmd = cn.prepareStatement(consulta);
-            ResultSet rs = cmd.executeQuery();
-            while(rs.next())
-            {
-                resp.add(new TipoGafe(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBlob(5)));
-            }
+            em.persist(obje);
+            tx.commit();
+            resp = true;
         }
         catch(Exception ex)
         {
-            ex.printStackTrace();
+            tx.rollback();
         }
-        finally
-        {
-            if(cn != null)
-            {
-                try
-                {
-                    if(!cn.isClosed())
-                    {
-                        cn.close();
-                    }
-                }
-                catch(SQLException ex)
-                {
-                    ex.printStackTrace();
-                }
-            }
-        }
+        em.close();
+        emf.close();
         return resp;
     }
 }
