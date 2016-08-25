@@ -38,7 +38,7 @@ public class TipoGafeServ extends HttpServlet {
         if(esValido)
         {
             String mens = "";
-            String CRUD = request.getParameter("lugaAcceBton");
+            String CRUD = request.getParameter("accionBtn");
             if(CRUD.equals("Guardar"))
             {
                 TipoGafe obje = new TipoGafe();

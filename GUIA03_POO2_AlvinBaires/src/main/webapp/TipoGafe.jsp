@@ -15,7 +15,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Lugares</title>
+    <title>Tipo Gafete</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -53,10 +53,10 @@
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
-      <form  action="LugaAcceServ" class="form-horizontal style-form" method="POST">
+      <form  action="TipoGafeServ" class="form-horizontal style-form" method="POST">
       <section id="main-content">          
               <section class="wrapper">
-                  <h3><i class="fa fa-angle-right"></i>Lugares</h3>
+                  <h3><i class="fa fa-angle-right"></i>Tipo Gafete</h3>
 
                   <!-- BASIC FORM ELELEMNTS -->
                   <div class="row mt">
@@ -75,8 +75,8 @@
                                       
                                       
                               <div class="col s12 center-align">
-                                  <input type="submit" name="lugaAcceBton" value="Guardar" class="btn btn-default" />                                    
-                                    <input type="submit" name="lugaAcceBton" value="Modificar" class="btn btn-default" />                                    
+                                  <input type="submit" name="accionBtn" value="Guardar" class="btn btn-default" />                                    
+                                    <input type="submit" name="accionBtn" value="Modificar" class="btn btn-default" />                                    
                               </div>    
                           </div>
                       </div><!-- col-lg-12-->      	
@@ -87,10 +87,10 @@
 
                       <div class="col-lg-12">
                           <div class="content-panel">
-                              <h4><i class="fa fa-angle-right"></i>Listado de Lugares de Acceso</h4>
+                              <h4><i class="fa fa-angle-right"></i>Listado de Tipos de Documentoo</h4>
                               <hr>
                                   <section class="col-md-12">
-                                      <jsp:useBean id="LugaAcceCtrl" class="com.sv.udb.controlador.LugaAcceCtrl" scope="page"/>
+                                      <jsp:useBean id="BeanConsultar" class="com.sv.udb.controlador.TipoGafeCtrl" scope="page"/>
                                         <table class="table">
                                             <thead>
                                                 <tr>
@@ -100,18 +100,18 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach items="${LugaAcceCtrl.ConsTodo()}" var="fila">
+                                                <c:forEach items="${BeanConsultar.ConsTodo()}" var="fila">
                                                     <tr>
-                                                        <td><c:out value="${fila.nombLugaAcce}"></c:out></td>
+                                                        <td><c:out value="${fila.nombTipoGafe}"></c:out></td>
                                                         <td><c:out value="${fila.fechAlta}"></c:out></td>
-                                                        <td> <input type="radio" name="codiRadi" value="${fila.codiLugaAcce}"/></td>
+                                                        <td> <input type="radio" name="codiRadi" value="${fila.codiTipoGafe}"/></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
                                         </table>
                                   </section>                        
-                                      <input type="submit" name="lugaAcceBton" value="Consultar" class="btn btn-default" />
-                                      <input type="submit" name="lugaAcceBton" value="Eliminar" class="btn btn-default" />
+                                      <input type="submit" name="accionBtn" value="Consultar" class="btn btn-default" />
+                                      <input type="submit" name="accionBtn" value="Eliminar" class="btn btn-default" />
                               </div>
                           </div>
                       </div>

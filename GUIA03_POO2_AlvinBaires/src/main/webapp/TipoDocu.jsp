@@ -53,7 +53,7 @@
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
-      <form  action="LugaAcceServ" class="form-horizontal style-form" method="POST">
+      <form  action="TipoDocuServ" class="form-horizontal style-form" method="POST">
       <section id="main-content">          
               <section class="wrapper">
                   <h3><i class="fa fa-angle-right"></i>Tipo Documento</h3>
@@ -87,7 +87,7 @@
 
                       <div class="col-lg-12">
                           <div class="content-panel">
-                              <h4><i class="fa fa-angle-right"></i>Listado de Tipos de Documentoo</h4>
+                              <h4><i class="fa fa-angle-right"></i>Listado de Tipos de Documento</h4>
                               <hr>
                                   <section class="col-md-12">
                                       <jsp:useBean id="BeanConsultar" class="com.sv.udb.controlador.TipoDocuCtrl" scope="page"/>
