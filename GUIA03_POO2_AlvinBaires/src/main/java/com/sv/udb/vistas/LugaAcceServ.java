@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.sv.udb.vistas;
 
 import com.sv.udb.controlador.LugaAcceCtrl;
@@ -17,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author REGISTRO
+ * @author Alvin
+ * @version 1.0 27 de Agosto de 2016
  */
 @WebServlet(name = "LugaAcceServ", urlPatterns = {"/LugaAcceServ"})
 public class LugaAcceServ extends HttpServlet {

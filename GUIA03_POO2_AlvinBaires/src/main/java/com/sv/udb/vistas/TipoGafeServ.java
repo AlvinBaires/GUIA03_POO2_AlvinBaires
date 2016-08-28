@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author REGISTRO
+ * @author Alvin
+ * @version 1.0 27 de Agosto de 2016
  */
 @WebServlet(name = "TipoGafeServ", urlPatterns = {"/TipoGafeServ"})
 public class TipoGafeServ extends HttpServlet {

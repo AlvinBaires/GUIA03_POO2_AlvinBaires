@@ -10,8 +10,20 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+/**
+ * @author Alvin
+ * @version 1.0 27 de Agosto de 2016
+ */
+
 public class TipoDocuCtrl {
-    
+        
+    /**
+     * Método que guarda un objeto del tipo TipoDocu en la base de datos
+     * @param Objeto Objeto del tipo TipoDocu
+     * @return boolean si la operación se realizó correctamente o no
+     * @exception Error al guardar registro en la base de datos      
+     * @since incluido desde la version 1.0
+     */
     public boolean guar(TipoDocu obje)
     {
         boolean resp = false;
@@ -34,7 +46,14 @@ public class TipoDocuCtrl {
         return resp;
     }
     
-     public List<TipoDocu>  ConsTodo()
+    
+    /**
+     * Método que consulta los registros de la base de datos
+     * @return Lista de Objetos TipoDocu
+     * @exception Error al consultar  
+     * @since incluido desde la version 1.0
+     */
+    public List<TipoDocu>  ConsTodo()
     {
         List<TipoDocu> resp = new ArrayList<>();
           EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -51,7 +70,15 @@ public class TipoDocuCtrl {
         return resp;
        
     }
-        public boolean modi(TipoDocu obje)
+    
+    /**
+     * Método que modifica un registro en la base de datos
+     * @param Objeto Objeto del tipo TipoDocu
+     * @return boolean si la operación se realizó correctamente o no
+     * @exception Error al modificar registro en la base de datos      
+     * @since incluido desde la version 1.0
+     */
+    public boolean modi(TipoDocu obje)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -76,14 +103,20 @@ public class TipoDocuCtrl {
         return resp;
     }
     
-   
+   /**
+     * Método que cambia de estado a un objeto en la base de datos
+     * @param Entero Código del registro
+     * @return boolean si la operación se realizó correctamente o no
+     * @exception Error al guardar registro en la base de datos      
+     * @since incluido desde la version 1.0
+     */
     public boolean elim(Long empId)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
-         TipoDocu objeTipoDocu = null;
+        TipoDocu objeTipoDocu = null;
         tx.begin();
         try
         {
@@ -102,10 +135,14 @@ public class TipoDocuCtrl {
         emf.close();
         return resp;
     }
-
-
-     
-     
+    
+    /**
+     * Método que obtiene un registro de la base de datos
+     * @param Entero Código del reigstro
+     * @return boolean si la operación se realizó correctamente o no
+     * @exception Error al consultar registro de la base de datos      
+     * @since incluido desde la version 1.0
+     */
     public TipoDocu get(Long empId){
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");

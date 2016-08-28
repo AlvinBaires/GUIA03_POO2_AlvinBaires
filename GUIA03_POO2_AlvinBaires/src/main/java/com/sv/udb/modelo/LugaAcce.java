@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Alvin
+ * @version 1.0 27 de Agosto de 2016
  */
 package com.sv.udb.modelo;
 
@@ -20,10 +19,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
-/**
- *
- * @author REGISTRO
- */
 @Entity
 @Table(name = "luga_acce", catalog = "rceron_poo", schema = "")
 @NamedQueries({
@@ -36,6 +31,7 @@ public class LugaAcce implements Serializable {
     @Basic(optional = false)
     @Column(name = "codi_luga_acce")
     private Long codiLugaAcce;
+    
     @Size(max = 100)
     @Column(name = "nomb_luga_acce")
     private String nombLugaAcce;
@@ -47,50 +43,97 @@ public class LugaAcce implements Serializable {
     private Date fechBaja;
     @Column(name = "esta")
     private Integer esta;
-
+    
+    /**
+     * Método constructor
+     */
     public LugaAcce() {
     }
-
+    
+    /**
+     * Método constructor
+     * @param códio registro
+     */
     public LugaAcce(Long codiLugaAcce) {
-        this.codiLugaAcce = codiLugaAcce;
+        this.codiLugaAcce = this.codiLugaAcce;
     }
 
+    /**
+     * Método para obtener valor
+     * @return Entero código lugar
+     */
     public Long getCodiLugaAcce() {
         return codiLugaAcce;
     }
 
+    /**
+     * Método para fijar valor a una variable del objeto
+     * @param Entero código lugar
+     */
     public void setCodiLugaAcce(Long codiLugaAcce) {
         this.codiLugaAcce = codiLugaAcce;
     }
 
+    /**
+     * Método para obtener valor
+     * @return String nombre lugar
+     */
     public String getNombLugaAcce() {
         return nombLugaAcce;
     }
 
+    /**
+     * Método para fijar valor a una variable del objeto
+     * @param String nombre lugar
+     */
     public void setNombLugaAcce(String nombLugaAcce) {
         this.nombLugaAcce = nombLugaAcce;
     }
 
+    /**
+     * Método para obtener valor
+     * @return Date fecha alta lugar
+     */
     public Date getFechAlta() {
         return fechAlta;
     }
 
+    /**
+     * Método para fijar valor a una variable del objeto
+     * @param Date fecha Alta
+     */
     public void setFechAlta(Date fechAlta) {
         this.fechAlta = fechAlta;
     }
-
+    
+    /**
+     * Método para obtener valor
+     * @return Date fecha baja lugar
+     */
     public Date getFechBaja() {
         return fechBaja;
     }
 
+    /**
+     * Método para fijar valor a una variable del objeto
+     * @param Date fecha de baja
+     */
     public void setFechBaja(Date fechBaja) {
         this.fechBaja = fechBaja;
     }
 
+    /**
+     * Método para obtener valor
+     * @return Entero estado
+     */
     public Integer getEsta() {
         return esta;
     }
 
+    /**
+     * Método para fijar valor a una variable del objeto
+     * @param Integer estado
+     */
     public void setEsta(Integer esta) {
         this.esta = esta;
     }

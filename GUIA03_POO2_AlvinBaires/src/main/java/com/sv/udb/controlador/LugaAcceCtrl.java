@@ -10,8 +10,20 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+/**
+ * @author Alvin
+ * @version 1.0 27 de Agosto de 2016
+ */
+
 public class LugaAcceCtrl {
     
+    /**
+     * Método que guarda un objeto del tipo LugaAcce en la base de datos
+     * @param Objeto Objeto del tipo LugaAcce"
+     * @return boolean si la operación se realizó correctamente o no
+     * @exception Error al persistir objeto         
+     * @since incluido desde la version 1.0
+     */
     public boolean guar(LugaAcce obje)
     {
         boolean resp = false;
@@ -34,7 +46,13 @@ public class LugaAcceCtrl {
         return resp;
     }
     
-     public List<LugaAcce>  ConsTodo()
+    /**
+     * Método que consulta todos los registros de la base de datos
+     * @return Lista de objetos tipo LugaAcce
+     * @exception Error al consultar       
+     * @since incluido desde la version 1.0
+     */
+    public List<LugaAcce>  ConsTodo()
     {
         List<LugaAcce> resp = new ArrayList<>();
           EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -52,7 +70,14 @@ public class LugaAcceCtrl {
        
     }
     
-     public boolean modi(LugaAcce obje)
+    /**
+     * Método que modifica un objeto de la base de dtos
+     * @param Objeto Objeto del tipo LugaAcce"
+     * @return boolean si la operación se realizó correctamente o no
+     * @exception Error al modificar registro         
+     * @since incluido desde la version 1.0
+     */
+    public boolean modi(LugaAcce obje)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -77,7 +102,13 @@ public class LugaAcceCtrl {
         return resp;
     }
     
-   
+   /**
+     * Método que camnia estado a un registro de la base de datos
+     * @param Entero Código del Registro
+     * @return boolean si la operación se realizó correctamente o no
+     * @exception Error al cambiar estado al registro         
+     * @since incluido desde la version 1.0
+     */
     public boolean elim(Long empId)
     {
         boolean resp = false;
@@ -106,13 +137,17 @@ public class LugaAcceCtrl {
 
 
      
-     
-    public LugaAcce get(Long empId){
-        
+    /**
+     * Método que consulta un registro de la base de datos
+     * @param empId Código del Registro que se quiere consultar
+     * @return Objeto tipo LugaAcce
+     * @exception Error al consultar registro         
+     * @since incluido desde la version 1.0
+     */
+    public LugaAcce get(Long empId){        
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
-        LugaAcce resp = null;
-        
+        LugaAcce resp = null;        
         try{
             resp = em.find(LugaAcce.class, empId);
             

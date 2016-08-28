@@ -1,10 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Alvin
+ * @version 1.0 27 de Agosto de 2016
  */
 package com.sv.udb.modelo;
-
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -21,10 +19,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author Laboratorio
- */
 @Entity
 @Table(name = "tipo_gafe", catalog = "rceron_poo", schema = "")
 @XmlRootElement
@@ -55,49 +49,96 @@ public class TipoGafe implements Serializable {
     @Column(name = "esta")
     private Integer esta;
 
+    /**
+     * Método constructor
+     */
     public TipoGafe() {
     }
 
+    /**
+     * Método constructor
+     * @param codiTipoGafe Código del Registro
+     */
     public TipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }
 
+    /**
+     * Método que devuelve un valor del objeto
+     * @return Long Código del Registro
+     */
     public Long getCodiTipoGafe() {
         return codiTipoGafe;
     }
 
+    /**
+     * Método que pone un valor en el objeto
+     * @param codiTipoGafe Código Tipo Gafete
+     */
     public void setCodiTipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }
 
+    /**
+     * Método que devuelve un valor del objeto
+     * @return Nombre del Registro
+     */
     public String getNombTipoGafe() {
         return nombTipoGafe;
     }
 
+    /**
+     * Método que pone un valor en el objeto
+     * @param nombTipoGafe Nombre Tipo Gafete
+     */
     public void setNombTipoGafe(String nombTipoGafe) {
         this.nombTipoGafe = nombTipoGafe;
     }
 
+    /**
+     * Método que devuelve un valor del objeto
+     * @return Date Fecha Alta del Registro
+     */
     public Date getFechAlta() {
         return fechAlta;
     }
 
+    /**
+     * Método que pone un valor en el objeto
+     * @param fechAlta Fecha Alta Tipo Gafete
+     */
     public void setFechAlta(Date fechAlta) {
         this.fechAlta = fechAlta;
     }
 
+    /**
+     * Método que devuelve un valor del objeto
+     * @return Date Fecha Baja del Registro
+     */
     public Date getFechBaja() {
         return fechBaja;
     }
 
+    /**
+     * Método que pone un valor en el objeto
+     * @param fechBaja Fecha de Baja del Tipo Gafete
+     */
     public void setFechBaja(Date fechBaja) {
         this.fechBaja = fechBaja;
     }
 
+    /**
+     * Método que devuelve un valor del objeto
+     * @return Integer Estado del Registro
+     */
     public Integer getEsta() {
         return esta;
     }
 
+    /**
+     * Método que pone un valor en el objeto
+     * @param esta Estado del Tipo Gafete
+     */
     public void setEsta(Integer esta) {
         this.esta = esta;
     }

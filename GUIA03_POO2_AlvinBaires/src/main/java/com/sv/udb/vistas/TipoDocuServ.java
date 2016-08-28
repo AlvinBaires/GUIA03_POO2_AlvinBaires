@@ -5,6 +5,11 @@
  */
 package com.sv.udb.vistas;
 
+/**
+ * @author Alvin
+ * @version 1.0 27 de Agosto de 2016
+ */
+
 import com.sv.udb.controlador.*;
 import com.sv.udb.modelo.*;
 import java.io.IOException;
